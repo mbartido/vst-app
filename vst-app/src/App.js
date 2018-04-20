@@ -4,11 +4,13 @@ import './App.css';
 
 class App extends Component {
   
-  tshirtClick() {
+  tshirtClick(color) {
     var canvas = document.getElementsByClassName('canvas')[0];
-    var ctx = canvas.getContext('2d');
-    var img = document.getElementById('source');
-    ctx.drawImage(img, 0, 0);
+    if (canvas != null) {
+      var ctx = canvas.getContext('2d');
+      var img = document.getElementById(color);
+      ctx.drawImage(img, 0, 0); 
+    }
   }
 
   clearCanvas() {
@@ -18,7 +20,9 @@ class App extends Component {
   }
   
   render() {
-    
+    const white = require('./dist/img/white.png');
+    const black = require('./dist/img/black.png');
+
     return (
       <div className="App">
         <header className="App-header">
@@ -26,14 +30,19 @@ class App extends Component {
         </header>
        
         <div style={{display:'none'}}>
-          <img id="source" src="https://www.nationwideschooluniforms.co.uk/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/p/l/plain_white_tshirt.png" alt="wat" />
+          <img id="white" src={white} alt="wat" />
         </div> 
+
+        <div style={{display:'none'}}>
+          <img id="black" src={black} alt="wat" />
+        </div> 
+
          
         <div className="shirtButtons">
           <ButtonGroup>
-            <Button onClick={this.tshirtClick}>Shirt 1</Button>
-            <Button onClick={this.clearCanvas}>Shirt 2</Button>
-            <Button>Shirt 3</Button>
+            <Button onClick={() => this.tshirtClick('white')}>Shirt 1</Button>
+            <Button onClick={() => this.tshirtClick('black')}>Shirt 2</Button>
+            <Button onClick={this.clearCanvas}>Shirt 3</Button>
           </ButtonGroup>
         </div>
 
