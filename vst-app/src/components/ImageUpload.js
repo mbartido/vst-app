@@ -23,11 +23,11 @@ class ImageUpload extends Component {
 
    render() {
       let {imagePreviewUrl} = this.state;
-      let $imagePreview = null;
+      let imagePreview = null;
       if (imagePreviewUrl) {
-         $imagePreview = (<img src={imagePreviewUrl} />);
+          imagePreview = <img src={imagePreviewUrl} />;
       } else {
-         $imagePreview = (<div className="previewText">Please select an image.</div>);
+         imagePreview = <div className="previewText">Please select an image.</div>;
       }
 
       return (
@@ -37,7 +37,7 @@ class ImageUpload extends Component {
                 onChange={(e) => this.imageChange(e)} />
             </form>
             <div className="imgPreview">
-               {$imagePreview}
+               {imagePreview}
             </div>   
          </div>
       );
