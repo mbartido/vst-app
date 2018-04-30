@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, InputGroup, Input} from 'reactstrap';
+import { Button, ButtonGroup, InputGroup, Input,
+         Jumbotron } from 'reactstrap';
 import './App.css';
 import ImageUpload from './components/ImageUpload.js'
 
@@ -36,6 +37,13 @@ class App extends Component {
         <div style={{display:'none'}}>
           <img id="white" src={white} alt="wat" />
         </div> 
+
+        <div className="intro">
+          <Jumbotron>
+            <p>To get started please choose a shirt. Then, upload an image.
+            The image will then be shown on the shirt and you can customize the design as you like.</p>
+          </Jumbotron>
+        </div>
 
         <div style={{display:'none'}}>
           <img id="black" src={black} alt="wat" />

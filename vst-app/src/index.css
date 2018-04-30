@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.intro {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.jumbotron {
+  padding-bottom: 32px !important;
+  padding-top: 32px !important;
+}
+
+.shirtButtons {
+  padding-top: 0px !important;
+}
+
+.previewComponent {
+  margin-top: 20px;
+}

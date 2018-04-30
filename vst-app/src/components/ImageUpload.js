@@ -32,8 +32,8 @@ class ImageUpload extends Component {
       var ctx = canvas.getContext('2d');
       var img = new Image();
       img.onload = function() {
-        ctx.drawImage(img, 0, 0, img.width, img.height, canvas.width/2 - 75, 
-                      canvas.height/2 - 75, 150, 150);
+        ctx.drawImage(img, 0, 0, img.width, img.height, canvas.width/2 - 100, 
+                      canvas.height/2 - 150, 200, 200 * img.height/img.width);
       };
             img.src = imagePreviewUrl;
     } else {
