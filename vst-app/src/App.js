@@ -25,19 +25,23 @@ class App extends Component {
 
   render() {
     // So we can serve static t shirt images
-    const white = require('./dist/img/white.png');
-    const black = require('./dist/img/black.png');
+    const white = require('./dist/img/white2.png');
+    const black = require('./dist/img/black2.png');
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">VST</h1>
         </header>
        
-        {/* T shirt images */}
+        {/* T shirt images that are not displayed */}
         <div style={{display:'none'}}>
           <img id="white" src={white} alt="wat" />
         </div> 
+        <div style={{display:'none'}}>
+          <img id="black" src={black} alt="wat" />
+        </div> 
 
+        {/* Introduction to how to use website */}
         <div className="intro">
           <Jumbotron>
             <p>To get started please choose a shirt. Then, upload an image.
@@ -45,22 +49,22 @@ class App extends Component {
           </Jumbotron>
         </div>
 
-        <div style={{display:'none'}}>
-          <img id="black" src={black} alt="wat" />
-        </div> 
-
+        {/* Picking shirt color buttons */}
         <div className="shirtButtons">
           <ButtonGroup>
-            <Button onClick={() => this.tshirtClick('white')}>Shirt 1</Button>
-            <Button onClick={() => this.tshirtClick('black')}>Shirt 2</Button>
-            <Button onClick={this.clearCanvas}>Shirt 3</Button>
+            <Button onClick={() => this.tshirtClick('white')}>White</Button>
+            <Button onClick={() => this.tshirtClick('black')}>Black</Button>
+            <Button onClick={this.clearCanvas}>Clear</Button>
           </ButtonGroup>
         </div>
 
-        <canvas className="canvas" width="800" height="800">
+        {/* Where user design is stored */}
+        <canvas className="canvas" width="500" height="500">
         </canvas>
 
+        {/* Where images are uploaded to canvas */} 
         <ImageUpload />
+
       </div>
     );
   }
