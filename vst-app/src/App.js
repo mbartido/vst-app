@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bootstrap';
 import { Button, ButtonGroup, InputGroup, Input,
          Jumbotron } from 'reactstrap';
 import './App.css';
@@ -25,45 +26,59 @@ class App extends Component {
 
   render() {
     // So we can serve static t shirt images
-    const white = require('./dist/img/white2.png');
-    const black = require('./dist/img/black2.png');
+    const white = require('./dist/img/white.png');
+    const black = require('./dist/img/black.png');
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">VST</h1>
         </header>
        
-        {/* T shirt images that are not displayed */}
+        {/* T shirt images */}
         <div style={{display:'none'}}>
           <img id="white" src={white} alt="wat" />
         </div> 
+        
         <div style={{display:'none'}}>
           <img id="black" src={black} alt="wat" />
         </div> 
 
-        {/* Introduction to how to use website */}
-        <div className="intro">
-          <Jumbotron>
-            <p>To get started please choose a shirt. Then, upload an image.
-            The image will then be shown on the shirt and you can customize the design as you like.</p>
-          </Jumbotron>
+        <div class="wrapper">
+          <nav id="sidebar">
+            <div class="sidebar-header">
+              <h3>Sidebar</h3>
+            </div>
+  
+            {/* Links */}
+            <ul class="list-unstyled components">
+            
+              <li class="active">
+                <a href="#section1Submenu" data-toggle="collapse" aria-expanded="false">Shirt Color</a>
+                <ul class="collapse list-unstyled" id="section1Submenu">
+                  <li><Button onClick={() => this.tshirtClick('white')}>White</Button></li>
+                  <li><Button onClick={() => this.tshirtClick('black')}>Black</Button></li>
+                  <li><Button onClick={this.clearCanvas}>Clear</Button></li>
+                </ul>
+              </li>
+
+              <li><a href="#">Section 3</a></li>
+
+            </ul>
+          </nav>
+
+          <div id="content">
+            <div class="row">
+              <div class="col-md-9 col-lg-9">
+                <canvas className="canvas" width="800" height="800">
+                </canvas>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <ImageUpload />
+              </div>
+            </div>
+          </div>
+        
         </div>
-
-        {/* Picking shirt color buttons */}
-        <div className="shirtButtons">
-          <ButtonGroup>
-            <Button onClick={() => this.tshirtClick('white')}>White</Button>
-            <Button onClick={() => this.tshirtClick('black')}>Black</Button>
-            <Button onClick={this.clearCanvas}>Clear</Button>
-          </ButtonGroup>
-        </div>
-
-        {/* Where user design is stored */}
-        <canvas className="canvas" width="500" height="500">
-        </canvas>
-
-        {/* Where images are uploaded to canvas */} 
-        <ImageUpload />
 
       </div>
     );
