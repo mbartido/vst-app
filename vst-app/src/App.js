@@ -55,9 +55,11 @@ class App extends Component {
               <li class="active">
                 <a href="#section1Submenu" data-toggle="collapse" aria-expanded="false">Shirt Color</a>
                 <ul class="collapse list-unstyled" id="section1Submenu">
-                  <li><Button onClick={() => this.tshirtClick('white')}>White</Button></li>
+                  
+                  {/* <li><Button onClick={() => this.tshirtClick('white')}>White</Button></li>
                   <li><Button onClick={() => this.tshirtClick('black')}>Black</Button></li>
-                  <li><Button onClick={this.clearCanvas}>Clear</Button></li>
+                  <li><Button onClick={this.clearCanvas}>Clear</Button></li> */}
+
                 </ul>
               </li>
 
@@ -68,13 +70,17 @@ class App extends Component {
 
           <div id="content">
             <div class="row">
+              {/* Where tshirt pops up */}
               <div class="col-md-9 col-lg-9">
-                <canvas className="canvas" width="800" height="800">
-                </canvas>
+                {/* <canvas className="canvas" width="800" height="800">
+                </canvas> */}
               </div>
+              
+              {/* Where image uploaded is */}
               <div class="col-md-3 col-lg-3">
-                <ImageUpload />
+                {/* <ImageUpload /> */}
               </div>
+            
             </div>
           </div>
         
