@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import 'bootstrap';
 import { Button, ButtonGroup, InputGroup, Input,
          Jumbotron } from 'reactstrap';
+import { Stage, Layer, Image } from 'react-konva';
 import './App.css';
 import ImageUpload from './components/ImageUpload.js'
+import ImageCanvas from './components/ImageCanvas.js'
 
 class App extends Component {
   
@@ -74,6 +76,11 @@ class App extends Component {
               <div class="col-md-9 col-lg-9">
                 {/* <canvas className="canvas" width="800" height="800">
                 </canvas> */}
+                <Stage width="800" height="800">
+                  <Layer>
+                    <ImageCanvas />
+                  </Layer>
+                </Stage>
               </div>
               
               {/* Where image uploaded is */}
