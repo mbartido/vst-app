@@ -1,26 +1,61 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Stage, Layer, Image } from 'react-konva';
+import white from './../dist/img/white.png';
+import black from './../dist/img/black.png';
+import ColorPick from './ColorPick.js';
 
 class ImageCanvas extends React.Component {
-    state = {
-        image: null
-    };
+    constructor(props) {
+        super(props);
+        // tshirt will be stored as an image object 
+        this.state = {
+            tshirt: null
+        }
+    }
 
     componentDidMount() {
         const image = new window.Image();
-        image.src = "http://konvajs.github.io/assets/yoda.jpg";
+        if (this.props.color === 'white') {
+            image.src = white;
+        } else {
+            image.src = black;
+        }
         image.onload = () => {
             // set state will redraw layer because 
             // image prop is changed
             this.setState({
-                image: image
+                tshirt: image
             });
         };
     }
 
+    // So we can check when tshirt changes
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.tshirt == 'black') {
+            const image = new window.Image();
+            image.src = black;
+            image.onload = () => {
+                this.setState({
+                    tshirt: image
+                })
+            }
+        } else {
+            const image = new window.Image();
+            image.src = white;
+            image.onload = () => {
+                this.setState({
+                    tshirt: image
+                })
+            }
+        }
+    }
+
     render() {
-        return <Image image={this.state.image} />;
+        return (
+            <Image image={this.state.tshirt} />
+
+        )
     }
 }
 

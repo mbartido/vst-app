@@ -9,6 +9,20 @@ import ImageCanvas from './components/ImageCanvas.js'
 
 class App extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+      tshirt: null
+    }
+    this.tshirtColor = this.tshirtColor.bind(this)
+  }
+
+  tshirtColor(color) {
+    this.setState({
+      tshirt: color
+    })
+  }
+
   // Changes the t shirt of the canvas
   tshirtClick(color) {
     var canvas = document.getElementsByClassName('canvas')[0];
@@ -72,15 +86,18 @@ class App extends Component {
 
           <div id="content">
             <div class="row">
+              
               {/* Where tshirt pops up */}
               <div class="col-md-9 col-lg-9">
                 {/* <canvas className="canvas" width="800" height="800">
                 </canvas> */}
                 <Stage width="800" height="800">
                   <Layer>
-                    <ImageCanvas />
+                    <ImageCanvas tshirt={this.state.tshirt}/>
                   </Layer>
                 </Stage>
+                <Button onClick={() => this.tshirtColor('white')}>White</Button>
+                <Button onClick={() => this.tshirtColor('black')}>Black</Button>
               </div>
               
               {/* Where image uploaded is */}
