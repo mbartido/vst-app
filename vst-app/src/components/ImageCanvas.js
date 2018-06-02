@@ -16,10 +16,12 @@ class ImageCanvas extends React.Component {
 
     componentDidMount() {
         const image = new window.Image();
-        if (this.props.color === 'white') {
+        if (this.props.color == 'white') {
             image.src = white;
-        } else {
+        } else if (this.props.color == 'black') {
             image.src = black;
+        } else {
+            image.src = null;
         }
         image.onload = () => {
             // set state will redraw layer because 
@@ -40,7 +42,7 @@ class ImageCanvas extends React.Component {
                     tshirt: image
                 })
             }
-        } else {
+        } else if (nextProps.tshirt == 'white') {
             const image = new window.Image();
             image.src = white;
             image.onload = () => {
@@ -48,7 +50,16 @@ class ImageCanvas extends React.Component {
                     tshirt: image
                 })
             }
+        } else {
+            const image = new window.Image();
+            image.src = white;
+            image.onload = () => {
+                this.setState({
+                    tshirt: null
+                })
+            }
         }
+
     }
 
     render() {
