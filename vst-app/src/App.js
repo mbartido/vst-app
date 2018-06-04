@@ -107,9 +107,7 @@ class App extends Component {
 
 
                 {/* Different colored tshirt option */}
-                <Button onClick={() => this.tshirtColor('white')}>White</Button>
-                <Button onClick={() => this.tshirtColor('black')}>Black</Button>
-                <Modal buttonLabel='Pick Shirt Color'/>
+                <Modal buttonLabel='Pick Shirt Color' tshirtColor= {this.tshirtColor}/>
 
               </div>
               
