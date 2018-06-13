@@ -68,24 +68,33 @@ class App extends Component {
           {/* Sidebar of page */}
           <nav id="sidebar">
             <div class="sidebar-header">
-              <h3>Sidebar</h3>
+              <h3>Shirt Design</h3>
             </div>
   
             {/* Links or sections of the sidebar */}
             <ul class="list-unstyled components">  
-              {/* Specific groups are li */}
-              <li class="active">
+            
+              {/* <li class="active">
                 <a href="#section1Submenu" data-toggle="collapse" aria-expanded="false">Shirt Color</a>
                 <ul class="collapse list-unstyled" id="section1Submenu">
                   
-                  {/* <li><Button onClick={() => this.tshirtClick('white')}>White</Button></li>
+                  <li><Button onClick={() => this.tshirtClick('white')}>White</Button></li>
                   <li><Button onClick={() => this.tshirtClick('black')}>Black</Button></li>
-                  <li><Button onClick={this.clearCanvas}>Clear</Button></li> */}
+                  <li><Button onClick={this.clearCanvas}>Clear</Button></li> 
 
                 </ul>
-              </li>
+              </li> */}
 
-              <li><a href="#">Section 3</a></li>
+              {/* Modal when page opens */}
+              {/* Different colored tshirt option */}
+              <li><Modal buttonLabel='Shirt Color' tshirtColor= {this.tshirtColor}/></li>
+              
+              {/* For uploading text to tshirt*/}
+              <li><a>Text</a></li>
+
+              {/* Uploading your design to tshirt*/}
+              <li><a>Design</a></li>
+
             </ul>
           </nav>
 
@@ -102,12 +111,6 @@ class App extends Component {
                     <ImageCanvas tshirt={this.state.tshirt}/>
                   </Layer>
                 </Stage>
-                
-                {/* Modal when page opens */}
-
-
-                {/* Different colored tshirt option */}
-                <Modal buttonLabel='Pick Shirt Color' tshirtColor= {this.tshirtColor}/>
 
               </div>
               
