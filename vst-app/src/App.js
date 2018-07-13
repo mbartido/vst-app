@@ -98,11 +98,11 @@ class App extends Component {
             </ul>
           </nav>
 
-          <div id="content">
+          <div id="content" class="container-fluid">
             <div class="row">
               
               {/* Where tshirt pops up. The left side of the page next to sidebar. */}
-              <div class="col-md-9 col-lg-9">
+              <div class="col-sm-9">
                 {/* <canvas className="canvas" width="800" height="800">
                 </canvas> */}
                 {/* Canvas area where image and edits are displayed */}
@@ -111,16 +111,16 @@ class App extends Component {
                     <ImageCanvas tshirt={this.state.tshirt}/>
                   </Layer>
                 </Stage>
-
               </div>
               
               {/* Where image uploaded is. The right side of the page.*/}
-              <div class="col-md-3 col-lg-3">
+              <div class="col-sm-3" style={{backgroundColor: '#ebebef'}}>
                 {/* <ImageUpload /> */}
               </div>
             
             </div>
           </div>
+          
         </div>
       </div>
     );
