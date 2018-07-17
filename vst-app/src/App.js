@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import 'bootstrap';
 import { Button, ButtonGroup, InputGroup, Input,
          Jumbotron } from 'reactstrap';
-import { Stage, Layer, Image } from 'react-konva';
+import { Stage, Layer, Image, KonvaContainerComponent } from 'react-konva';
 import './App.css';
 import ImageUpload from './components/ImageUpload.js'
 import ImageCanvas from './components/ImageCanvas.js'
+import ImageUpload2 from './components/ImageUpload2.js'
 import Modal from './components/Modal.js'
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -24,23 +25,6 @@ class App extends Component {
       tshirt: color
     })
   }
-
-  // Changes the t shirt of the canvas
-  // tshirtClick(color) {
-  //   var canvas = document.getElementsByClassName('canvas')[0];
-  //   if (canvas != null) {
-  //     var ctx = canvas.getContext('2d');
-  //     var img = document.getElementById(color);
-  //     ctx.drawImage(img, 0, 0); 
-  //   }
-  // }
-
-  // // Clears the canvas of all elements
-  // clearCanvas() {
-  //   var canvas = document.getElementsByClassName('canvas')[0];
-  //   var ctx = canvas.getContext('2d');
-  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // }
 
   render() {
     // So we can serve static t shirt images
@@ -102,15 +86,17 @@ class App extends Component {
             <div class="row">
               
               {/* Where tshirt pops up. The left side of the page next to sidebar. */}
-              <div class="col-sm-9">
+              <div class="col-sm-9 tshirt" align="center">
                 {/* <canvas className="canvas" width="800" height="800">
                 </canvas> */}
                 {/* Canvas area where image and edits are displayed */}
                 <Stage width="800" height="800">
                   <Layer>
-                    <ImageCanvas tshirt={this.state.tshirt}/>
+                    <ImageCanvas tshirt={this.state.tshirt} />
+                    <ImageUpload2 />
                   </Layer>
                 </Stage>
+
               </div>
               
               {/* Where image uploaded is. The right side of the page.*/}
