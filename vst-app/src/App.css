@@ -19,12 +19,13 @@
   padding: 20px;
 }
 
+/*
 .imgPreview {
   height: 200px;
   width: 200px;
   margin-left: auto;
   margin-right: auto;
-  /* float: right; */
+  /* float: right; 
 }
 .imgPreview > img {
   margin-top: 20px;
@@ -32,6 +33,7 @@
   height: 100%;
   width: 100%;
 }
+*/
 
 .wrapper {
   display: flex;
@@ -71,10 +73,6 @@
 
 .row {
   height: 100%;
-}
-
-.previewComponent {
-  margin-left: 100px;
 }
 
 .tshirt {

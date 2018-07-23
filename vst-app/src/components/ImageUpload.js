@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-         file: '', imagePreviewUrl: ''
-      };
+    this.state = {
+        file: '', imagePreviewUrl: ''
+    };
    }
 
   imageChange(e) {
